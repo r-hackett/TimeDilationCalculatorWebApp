@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name=viewport content="width=device-width, initial-scale=1">
+    <meta name="description" content="Time dilation calculation">
+    <title>Time Dilation Calculator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="jumbotron mb-4 pb-4">
+            <h1 class="display-4">Time Dilation Calculator</h1>
+            <p>Calculates the time dilation of an object moving for some time with some relative velocity with respect to the observer.</p>
+            $$t = {t0 \over \sqrt{1 - {v \over c}^2}}$$
+            <p>t = time observed in the other reference frame</p>
+            <p>t0 = time observed in moving object's reference frame</p>
+            <p>v = the speed of the moving object</p>
+            <p>c = the speed of light</p>
+            <p>
+                <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+                  Show example
+                </button>
+                <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseGraph" aria-expanded="false" aria-controls="collapseGraph">
+                    Show graph
+                  </button>                
+            </p>
+            <div class="collapse" id="collapseExample">
+                <div class="card card-body">
+                    <p>An astronaut boards a spaceship and travels through space at 95% the speed of light (v) for 1 year (t0). When the journey is complete,
+                    a clock on earth (t) is compared with a clock on board the spaceship (t0). The clock on earth shows that the journey took 3.2 years, but the clock
+                    on board the ship shows that the journey took 1 year.
+                    <br>
+                </p>
+                    <p class="offset-1 font-italic">t = 1 / sqrt(1 - (.95 / 1)&#178;)<br>
+                    t = 1 / sqrt(1 - .95&#178;)<br>
+                    t = 1 / sqrt(1 - .9025)<br>
+                    t = 1 / sqrt(0.0975)<br>
+                    t = 1 / 0.3122<br>
+                    t = 3.2</p>
+                </div>
+            </div>
+            <div class="collapse" id="collapseGraph">
+                <div class="card card-body">
+                    <img src="images/graph.jpg" class="img-fluid mx-auto d-block" alt="Responsive image"\>
+                </div>
+            </div>                   
+        </div>
+
+        <script language=Javascript>
+            function isNumberKey(evt)
+            {
+               var charCode = (evt.which) ? evt.which : evt.keyCode;
+               if (charCode != 46 && charCode > 31 
+                 && (charCode < 48 || charCode > 57))
+                  return false;
+     
+               return true;
+            }
+        </script>
+
+        <div class="input-group mb-3">
+            <input type="text" class="form-control" placeholder="t0" aria-label="Travel time" onkeypress="return isNumberKey(event)" id="t0-input">
+            <div class="input-group-append">
+                <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="t0-unit-button">secs</button>
+                <div class="dropdown-menu">
+                    <a class="dropdown-item" id="t0-secs-unit">secs</a>
+                    <a class="dropdown-item" id="t0-years-unit">years</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="input-group mb-3">
+            <input type="text" class="form-control" placeholder="v" aria-label="Velocity" onkeypress="return isNumberKey(event)" id="v-input">
+            <div class="input-group-append">
+                <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="v-unit-button">m/s</button>
+                <div class="dropdown-menu">
+                    <a class="dropdown-item" id="v-ms-unit">m/s</a>
+                    <a class="dropdown-item" id="v-kms-unit">km/s</a>
+                    <a class="dropdown-item" id="v-mph-unit">mph</a>
+                    <a class="dropdown-item" id="v-c-unit">%c</a>
+                </div>
+            </div>
+        </div>
+
+        <label for="t-input">Result</label>
+        <div class="input-group mb-3">
+            <input type="text" class="form-control" placeholder="t" aria-label="Result" id="t-input" readonly>
+            <div class="input-group-append">
+                <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="t-unit-button">secs</button>
+                <div class="dropdown-menu">
+                    <a class="dropdown-item" id="t-secs-unit">secs</a>
+                    <a class="dropdown-item" id="t-years-unit">years</a>
+                </div>
+            </div>
+        </div>        
+
+        <button type="button" id="calculate-button" class="mb-3">Calculate</button>
+    </div>
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
+
+    <!-- jQuery library -->
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js"></script>
+
+    <!-- Popper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Mathematical equations -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script type="text/javascript" id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+
+    <!-- Arbitrary precision numerical library -->
+    <script src="bignumber.js"></script>
+
+    <script src="main.js"></script>
+</body>
+</html>

@@ -47,7 +47,7 @@ vMphUnit.addEventListener('click', function (event) {
 });
 
 vCUnit.addEventListener('click', function (event) {
-    vUnitButton.innerText = "%c";
+    vUnitButton.innerText = "c%";
     console.log("v-c-unit clicked");
 });
 
@@ -99,7 +99,7 @@ calculateButton.addEventListener('click', function (event) {
                 v = BigNumber(vInput.value).dividedBy(cmph);                
                 break;
 
-            case "%c":
+            case "c%":
                 v = BigNumber(vInput.value).dividedBy(100);
                 break;                
         }
@@ -152,7 +152,7 @@ function validate() {
         return false;
     }
 
-    if (vUnitButton.innerText == "%c" && !v.isLessThanOrEqualTo(100)) {
+    if (vUnitButton.innerText == "c%" && !v.isLessThanOrEqualTo(100)) {
         window.alert("v must must be a value between 0 and 100");
         return false;
     }

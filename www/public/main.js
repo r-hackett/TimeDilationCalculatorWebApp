@@ -67,7 +67,7 @@ tYearsUnit.addEventListener('click', function (event) {
 
 cms = BigNumber("299792458");
 ckms = BigNumber("299792.458");
-cmph = BigNumber("670616629.38444444444444444");
+cmph = BigNumber("670616629.3844");
 
 calculateButton.addEventListener('click', function (event) {
     console.log("calculate-button clicked")
